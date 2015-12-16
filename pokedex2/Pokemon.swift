@@ -80,6 +80,9 @@ class Pokemon {
     }
     
     var nextEvolutionLevel: String {
+        if _nextEvolutionLevel == nil {
+            _nextEvolutionLevel = ""
+        }
         return _nextEvolutionLevel
     }
     

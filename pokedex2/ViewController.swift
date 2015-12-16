@@ -47,7 +47,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         do {
             let csv  = try CSV(contentsOfURL: path)
             let rows = csv.rows
-            print(rows)
             
             for row in rows {
                 let pokeId = Int(row["id"]!)!
@@ -78,7 +77,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let poke: Pokemon!
         if inSearchMode {

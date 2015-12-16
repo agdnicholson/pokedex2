@@ -229,15 +229,47 @@
                                             <action selector="backBtnPressed:" destination="9rR-gU-xI1" eventType="touchUpInside" id="mAt-nN-PbM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXQ-O3-GR3">
+                                        <rect key="frame" x="512" y="14" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Y5W-wi-Fec"/>
+                                            <constraint firstAttribute="width" constant="40" id="hEj-i6-1Hk"/>
+                                        </constraints>
+                                        <state key="normal" image="next-button"/>
+                                        <connections>
+                                            <action selector="nextBtnPressed:" destination="9rR-gU-xI1" eventType="touchUpInside" id="YOi-rv-zV3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWe-WE-Op2">
+                                        <rect key="frame" x="74" y="14" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="O8n-Uk-fZg"/>
+                                            <constraint firstAttribute="height" constant="30" id="kY4-sG-mx1"/>
+                                        </constraints>
+                                        <state key="normal" image="previous-button"/>
+                                        <connections>
+                                            <action selector="previousBtnPressed:" destination="9rR-gU-xI1" eventType="touchUpInside" id="LN4-1w-cTo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="XWe-WE-Op2" firstAttribute="leading" secondItem="zMh-W5-bGr" secondAttribute="trailing" constant="20" id="3vc-Lm-0r3"/>
                                     <constraint firstItem="Xti-XT-eTJ" firstAttribute="centerX" secondItem="rgY-oE-PW1" secondAttribute="centerX" id="DpI-cy-suj"/>
                                     <constraint firstAttribute="height" constant="55" id="gDG-Ph-FJM"/>
                                     <constraint firstItem="zMh-W5-bGr" firstAttribute="top" secondItem="rgY-oE-PW1" secondAttribute="top" constant="14" id="glI-7H-7lN"/>
                                     <constraint firstItem="Xti-XT-eTJ" firstAttribute="centerY" secondItem="rgY-oE-PW1" secondAttribute="centerY" id="ie7-67-eyb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZXQ-O3-GR3" secondAttribute="trailing" constant="20" id="l5o-Ic-bxj"/>
+                                    <constraint firstItem="XWe-WE-Op2" firstAttribute="centerY" secondItem="rgY-oE-PW1" secondAttribute="centerY" id="mN6-ma-GTP"/>
+                                    <constraint firstItem="ZXQ-O3-GR3" firstAttribute="centerY" secondItem="rgY-oE-PW1" secondAttribute="centerY" id="mQP-Ro-FCu"/>
+                                    <constraint firstItem="XWe-WE-Op2" firstAttribute="centerX" secondItem="rgY-oE-PW1" secondAttribute="centerX" id="rHY-6W-Zs8"/>
                                     <constraint firstItem="zMh-W5-bGr" firstAttribute="leading" secondItem="rgY-oE-PW1" secondAttribute="leading" constant="8" id="xhV-Lr-p5Y"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rHY-6W-Zs8"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANW-jY-7Au">
                                 <rect key="frame" x="0.0" y="439" width="600" height="28"/>
@@ -264,25 +296,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="nZB-JX-lb1">
-                                <rect key="frame" x="191" y="472" width="560" height="120"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="189" translatesAutoresizingMaskIntoConstraints="NO" id="sc4-dh-J0D">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="Ar1-5q-Joq"/>
-                                            <constraint firstAttribute="width" constant="120" id="cdE-uB-nta"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="149" translatesAutoresizingMaskIntoConstraints="NO" id="REd-LV-kSy">
-                                        <rect key="frame" x="120" y="0.0" width="440" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="Zqe-T5-K3O"/>
-                                            <constraint firstAttribute="width" constant="120" id="qqB-Bs-Vg6"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-t9-lHO">
                                 <rect key="frame" x="10" y="83" width="580" height="344"/>
                                 <subviews>
@@ -406,6 +419,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="nZB-JX-lb1">
+                                <rect key="frame" x="15" y="475" width="560" height="120"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="189" translatesAutoresizingMaskIntoConstraints="NO" id="sc4-dh-J0D">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="Ar1-5q-Joq"/>
+                                            <constraint firstAttribute="width" constant="120" id="cdE-uB-nta"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="149" translatesAutoresizingMaskIntoConstraints="NO" id="REd-LV-kSy">
+                                        <rect key="frame" x="120" y="0.0" width="440" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="Zqe-T5-K3O"/>
+                                            <constraint firstAttribute="width" constant="120" id="qqB-Bs-Vg6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -434,7 +466,9 @@
                         <outlet property="mainImg" destination="W3J-Nd-6e5" id="X5k-ed-fjQ"/>
                         <outlet property="nameLbl" destination="Xti-XT-eTJ" id="Xqt-sO-IDx"/>
                         <outlet property="nextEvoImg" destination="REd-LV-kSy" id="y2E-w9-atG"/>
+                        <outlet property="nextPokeButton" destination="ZXQ-O3-GR3" id="apf-Rj-8q4"/>
                         <outlet property="pokedexLbl" destination="hWq-Cw-ogE" id="hRY-xq-lwQ"/>
+                        <outlet property="previousPokeButton" destination="XWe-WE-Op2" id="L5J-yR-6QB"/>
                         <outlet property="typeLbl" destination="LCS-8O-B3Y" id="R8e-ym-nSd"/>
                         <outlet property="weightLbl" destination="Cwf-hS-BJv" id="xzQ-En-XFe"/>
                     </connections>
@@ -452,5 +486,7 @@
         <image name="back-button-new" width="481" height="271"/>
         <image name="bg 2" width="1920" height="1200"/>
         <image name="music-icon" width="256" height="256"/>
+        <image name="next-button" width="481" height="271"/>
+        <image name="previous-button" width="481" height="271"/>
     </resources>
 </document>

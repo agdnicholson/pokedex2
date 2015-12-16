@@ -12,6 +12,8 @@ class PokemonDetailVC: UIViewController {
     
     var pokemon: Pokemon!
     
+    var pokemonNames = [Int:String]()
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var mainImg: UIImageView!
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -25,9 +27,36 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var curEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     
+    @IBOutlet weak var nextPokeButton: UIButton!
+    @IBOutlet weak var previousPokeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getPokemonNames()
+        checkPrevNextButtons()
+        loadPoke()
+    }
+    
+    func checkPrevNextButtons() {
+        if pokemon.pokedexId <= 1 {
+            previousPokeButton.alpha = 0.2
+            previousPokeButton.enabled = false
+        }else {
+            previousPokeButton.alpha = 1
+            previousPokeButton.enabled = true
+        }
+        
+        if pokemon.pokedexId >= 718 {
+            nextPokeButton.alpha = 0.2
+            nextPokeButton.enabled = false
+        } else {
+            nextPokeButton.alpha = 1
+            nextPokeButton.enabled = true
+        }
+    }
+    
+    func loadPoke() {
         let img = UIImage(named: "\(pokemon.pokedexId)")
         nameLbl.text = pokemon.name.capitalizedString
         mainImg.image = img
@@ -87,4 +116,39 @@ class PokemonDetailVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func nextBtnPressed(sender: AnyObject) {
+        let newPokeId = pokemon.pokedexId + 1
+        if let newPokeName = pokemonNames[newPokeId] {
+            pokemon = Pokemon(name: newPokeName, pokedexId: newPokeId)
+            checkPrevNextButtons()
+            loadPoke()
+        }
+    }
+    
+    
+    @IBAction func previousBtnPressed(sender: AnyObject) {
+        let newPokeId = pokemon.pokedexId - 1
+        if let newPokeName = pokemonNames[newPokeId] {
+            pokemon = Pokemon(name: newPokeName, pokedexId: newPokeId)
+            checkPrevNextButtons()
+            loadPoke()
+        }
+    }
+    
+    func getPokemonNames() {
+        let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
+        
+        do {
+            let csv  = try CSV(contentsOfURL: path)
+            let rows = csv.rows
+            
+            for row in rows {
+                let pokeId = Int(row["id"]!)!
+                let name = row["identifier"]!
+                pokemonNames[pokeId] = name
+            }
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
 }
